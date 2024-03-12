@@ -1,0 +1,103 @@
+/* Color Variables */
+
+:root {
+    --mainBackground: #1b1b32;
+    --appBackground: #3b3b4f;
+    --buttonColor: #ffb73c;
+    --buttonBorder: #feac32;
+    --errorBackground: #ffadad;
+    --errorTextBorder:  #9f2525; 
+}
+
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*,::before, ::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    background-color: var(--mainBackground);
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#main-header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+#main-header {
+    text-align: center;
+    font-size: 50px;
+    color: white;
+}
+
+#app-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--appBackground);
+    border: solid 2px white;
+    width: 35%;
+    height: 300px;
+}
+
+#app-header {
+    color: white;
+    font-size: 30px;
+}
+
+#number-input {
+    background-color: black;
+    width: 70%;
+    height: 20%;
+    margin-bottom: 30px;
+    padding-right: 20px;
+}
+
+#convert-button {
+    background-color: var(--buttonColor);
+    width: 70%;
+    height: 20%;
+    font-size: 25px;
+    border-color: var(--buttonBorder);
+    box-shadow: 0px 2px 5px -1px black;
+}
+
+#convert-button:active {
+    box-shadow: 0px 0px 0px 0px;
+    transform: translateY(2px);
+}
+
+#error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--errorBackground);
+    width: 35%;
+    height: 80px;
+    margin-top: 25px;
+    text-align: center;
+    border: 2px solid var(--errorTextBorder);
+    color: var(--errorTextBorder);
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.hide {
+    display: none;
+}
