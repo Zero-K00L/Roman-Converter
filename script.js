@@ -1,11 +1,9 @@
 const userInput = document.getElementById('number');
 const convertBtn = document.getElementById('convert-btn');
 const output = document.getElementById('output');
+const result = document.getElementById('result');
 
 /* Error Messages */
-const nanInput = document.getElementById('valid-error');
-const lowInput = document.getElementById('greater-than-error');
-const highInput = document.getElementById('lesser-than-error');
 
 
 romanValues = [
@@ -74,37 +72,37 @@ romanValues = [
         value: 1000  
     },
 ]
-const inputInt = parseInt(userInput.value);
-/* const validInput = () => {
 
-    return;
-} */
 
-const displayResult = () => {
-    if (!userInput.value || isNaN(userInput.value)) {
+/* validates if input is valid and displays error message if it is not */
+const validInput = () => {
+    const inputInt = parseInt(userInput.value);
+    if (!userInput.value || isNaN(inputInt)) {
         output.classList.remove('hide');
         output.classList.add('error-result');
-        nanInput.classList.remove('hide');
+        result.textContent = "Please enter a valid number."
         return;
     }
-    else if(userInput.value < 0) {
+    else if(inputInt <= 0) {
         output.classList.remove('hide');
         output.classList.add('error-result');
-        lowInput.classList.remove('hide');
+        result.textContent = "Please enter a number greater than or equal to 1"
         return;
     }
-
-    else if(userInput.value > 4000) {
+    else if(userInput.value > 3999) {
         output.classList.remove('hide');
         output.classList.add('error-result');
-        highInput.classList.remove('hide');
+        result.textContent = "Please enter a number less than or equal to 3999"
         return;
     }
     else {
-        output.classList.remove('hide');
+        output.classList.add('hide');
         output.classList.remove('number-result');
+        result.textContent = "";
         return;
     }
 }
 
-convertBtn.addEventListener('click', displayResult);
+
+
+convertBtn.addEventListener('click', validInput);
