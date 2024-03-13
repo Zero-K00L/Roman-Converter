@@ -132,7 +132,6 @@ const findValue = () => {
             output.classList.add('number-result');
             result.textContent = answer;
 
-
         }
     });
 }
