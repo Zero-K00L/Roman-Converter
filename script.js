@@ -6,67 +6,67 @@ const test = document.getElementById('test-btn');
 
 romanValues = [
     {
-        romanNumeral: 'I',
+        symbol: 'I',
         value: 1
     },
 
     {
-        romanNumeral: 'IV',
+        symbol: 'IV',
         value: 4
     },
 
     {
-        romanNumeral: 'V',
+        symbol: 'V',
         value: 5
     },
 
     {
-        romanNumeral: 'IX',
+        symbol: 'IX',
         value: 9
     },
 
     {
-        romanNumeral: 'X',
+        symbol: 'X',
         value: 10
     },
 
     {
-        romanNumeral: 'XL',
+        symbol: 'XL',
         value: 40 
     },
 
     {
-        romanNumeral: 'L',
+        symbol: 'L',
         value: 50   
     },
 
     {
-        romanNumeral: 'XC',
+        symbol: 'XC',
         value: 90   
     },
 
     {
-        romanNumeral: 'C',
+        symbol: 'C',
         value: 100   
     },
 
     {
-        romanNumeral: 'CD',
+        symbol: 'CD',
         value: 400  
     },
 
     {
-        romanNumeral: 'D',
+        symbol: 'D',
         value: 500 
     },
 
     {
-        romanNumeral: 'CM',
+        symbol: 'CM',
         value: 900  
     },
 
     {
-        romanNumeral: 'M',
+        symbol: 'M',
         value: 1000  
     },
 ]
@@ -114,20 +114,46 @@ const convertInput = () => {
 } 
 
 const findValue = () => {
-    const inputInt = parseInt(userInput.value);
-    const inputResult = isInputValid();
-    const inputArrReversed = convertInput().reverse();
-    let answer = 0;
-
-    while(inputInt !== answer) {
-        romanValues.forEach(romanValue => {
-            if(romanValue.value);
-        })
-        return;
-    }
+    let inputInt = parseInt(userInput.value);
+   
+    const reversedValues = [...romanValues].reverse();
+    let symbolArr = [];
     
+    isInputValid();
+
+    reversedValues.forEach(romanNumeral => {
+        console.log(romanNumeral.value);
+        if(romanNumeral.value <= inputInt) {
+            symbolArr.push(romanNumeral.symbol);
+            inputInt -= romanNumeral.value;
+            console.log(symbolArr.join(''));
+            const answer = symbolArr.join('');
+            output.classList.remove('hide');
+            output.classList.add('number-result');
+            result.textContent = answer;
+
+
+        }
+    });
 }
 
 
 convertBtn.addEventListener('click', isInputValid);
 test.addEventListener('click', findValue);
+
+
+
+
+
+/* const findValue = () => {
+    const inputInt = parseInt(userInput.value);
+    const inputResult = isInputValid();
+    const reversedValues = [...romanValues].reverse();
+    let symbolArr = [];
+    let answer = 0;
+    
+    isInputValid();
+    reversedValues.forEach(romanNumeral => {
+        console.log(romanNumeral.value);
+    });
+} */
