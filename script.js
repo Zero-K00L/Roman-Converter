@@ -116,13 +116,13 @@ const findValue = () => {
     reversedValues.forEach(romanNumeral => {
         console.log(romanNumeral.value);
         while(romanNumeral.value <= inputInt) {
-        symbolArr.push(romanNumeral.symbol);
-        inputInt -= romanNumeral.value;
-        console.log(symbolArr.join(''));
-        const answer = symbolArr.join('');
-        output.classList.remove('hide');
-        output.classList.add('number-result');
-        result.textContent = answer;
+            symbolArr.push(romanNumeral.symbol);
+            inputInt -= romanNumeral.value;
+            console.log(symbolArr.join(''));
+            const answer = symbolArr.join('');
+            output.classList.remove('hide');
+            output.classList.add('number-result');
+            result.textContent = answer;
         }
     });
 }
