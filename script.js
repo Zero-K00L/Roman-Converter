@@ -108,23 +108,25 @@ const findValue = () => {
     const reversedValues = [...romanValues].reverse();
     let symbolArr = [];
     const validInput = isInputValid();
-    
+
     if(validInput === false) {
         return;
     }
 
     reversedValues.forEach(romanNumeral => {
         console.log(romanNumeral.value);
-        if(romanNumeral.value <= inputInt) {
-            symbolArr.push(romanNumeral.symbol);
-            inputInt -= romanNumeral.value;
-            console.log(symbolArr.join(''));
-            const answer = symbolArr.join('');
-            output.classList.remove('hide');
-            output.classList.add('number-result');
-            result.textContent = answer;
+        while(romanNumeral.value <= inputInt) {
+        symbolArr.push(romanNumeral.symbol);
+        inputInt -= romanNumeral.value;
+        console.log(symbolArr.join(''));
+        const answer = symbolArr.join('');
+        output.classList.remove('hide');
+        output.classList.add('number-result');
+        result.textContent = answer;
         }
     });
 }
 
 convertBtn.addEventListener('click', findValue);
+
+
