@@ -1,5 +1,4 @@
 /* Color Variables */
-
 :root {
     --mainBackground: #1b1b32;
     --appBackground: #3b3b4f;
@@ -84,10 +83,6 @@ body {
 #convert-btn:active {
     box-shadow: 0px 0px 0px 0px;
     transform: translateY(2px);
-}
-
-#output {
-    
 }
 
 .error-msg{
